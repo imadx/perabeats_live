@@ -61,6 +61,8 @@ router.post('/formData', function(req, res, next) {
 
 	if(match == ("5c972c40692353a6c53245e43c5edcf7e7f8688eeba18a9e33a214e67725078a")){
 
+		var _client_id = req.body.socket_id;
+
 		var game_data = new Game({
 			"game": req.body.form_game,
 			"description": req.body.form_description,
@@ -79,12 +81,13 @@ router.post('/formData', function(req, res, next) {
 			console.log('Game saved successfully!');
 			res.send({'status':'success'});
 		});
-
+		control_clients.removeClient(_client_id);
+		control_clients.createClient(_client_id);
 		io.emit('live_update', control_clients.getAllLiveClients());
 
 		var obj = JSON.parse(fs.readFileSync('model/highScores.js', 'utf8'));
 		io.emit('score_list', obj);
-		
+
 		// sendList
 		Game.find({}).sort({date: -1}).exec(function(err, games) {
 			if (err) throw err;
