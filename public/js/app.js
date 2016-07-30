@@ -13,8 +13,8 @@ var shownAlert;
 var _password;
 var _password_authenticated = false;
 
-var liveURL = "http://localhost:3000/";
-// var liveURL = "http://128.199.176.15:3000/";
+// var liveURL = "http://localhost:3000/";
+var liveURL = "/";
 
 /*
 	db      d88888b  .d8b.  d8888b. d88888b d8888b. d8888b.  .d88b.   .d8b.  d8888b. d8888b.
