@@ -1,0 +1,839 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+	color: #fff;
+	font-size: 1em;
+	line-height: 1.4;
+	/*background: url("../img/bg.png"); */
+	background-color: #000;
+	background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+
+::selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+	resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/*
+	d8888b.  .d8b.   .o88b. db   dD  d888b  d8888b.  .d88b.  db    db d8b   db d8888b.
+	88  `8D d8' `8b d8P  Y8 88 ,8P' 88' Y8b 88  `8D .8P  Y8. 88    88 888o  88 88  `8D
+	88oooY' 88ooo88 8P      88,8P   88      88oobY' 88    88 88    88 88V8o 88 88   88
+	88~~~b. 88~~~88 8b      88`8b   88  ooo 88`8b   88    88 88    88 88 V8o88 88   88
+	88   8D 88   88 Y8b  d8 88 `88. 88. ~8~ 88 `88. `8b  d8' 88b  d88 88  V888 88  .8D
+	Y8888P' YP   YP  `Y88P' YP   YD  Y888P  88   YD  `Y88P'  ~Y8888P' VP   V8P Y8888D'
+
+
+*/
+
+#_background{
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+/*	-webkit-filter: blur(2px);
+	filter: blur(2px);*/
+}
+
+
+#_background #overlay_image{
+	background: url("../uploads/bg.png") center; 
+	background-size: cover;
+}
+
+#_background #overlay_shade{
+	background: url("../img/shade.png") rgba(0,0,0,0.9); 
+	background-size: cover;
+}
+
+#_background .fullscreen{
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*
+	.88b  d88.  .d8b.  d888888b d8b   db d888888b d888888b d888888b db      d88888b
+	88'YbdP`88 d8' `8b   `88'   888o  88 `~~88~~'   `88'   `~~88~~' 88      88'
+	88  88  88 88ooo88    88    88V8o 88    88       88       88    88      88ooooo
+	88  88  88 88~~~88    88    88 V8o88    88       88       88    88      88~~~~~
+	88  88  88 88   88   .88.   88  V888    88      .88.      88    88booo. 88.
+	YP  YP  YP YP   YP Y888888P VP   V8P    YP    Y888888P    YP    Y88888P Y88888P
+	
+	
+*/
+
+
+#_mainTitle{
+	display: none;
+}
+
+#_mainTitle_footer{
+	position: fixed;
+	display: none;
+}
+
+
+/*
+	.d8888.  .o88b.  .d88b.  d8888b. d88888b .d8888.
+	88'  YP d8P  Y8 .8P  Y8. 88  `8D 88'     88'  YP
+	`8bo.   8P      88    88 88oobY' 88ooooo `8bo.
+	  `Y8b. 8b      88    88 88`8b   88~~~~~   `Y8b.
+	db   8D Y8b  d8 `8b  d8' 88 `88. 88.     db   8D
+	`8888Y'  `Y88P'  `Y88P'  88   YD Y88888P `8888Y'
+	
+	
+*/
+
+#_scores_timeline{
+	display: none;
+}
+#_scores_sidebar{
+	display: block;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	min-height: 100%;
+	background: rgba(6,7,8,0.2);
+	right: 0;
+}
+
+#_scores_sidebar .sideScores_title{
+	font-size: 24px;
+	padding: 10px;
+}
+
+#_scores_sidebar .scorecard.no-live{
+	text-align: center;
+}
+#_scores_sidebar .scorecard.no-live *{
+	opacity: 0.1;
+}
+#_scores_sidebar .scorecard.no-live img{
+	display: inline-block;
+	padding: 30px;
+}
+#_scores_sidebar .scorecard.no-live span{
+	display: block;
+	padding-bottom: 20px;
+}
+#_scores_sidebar .scorecard .score_header{
+	display: block;
+	padding: 10px;
+	padding-bottom: 0;
+	font-size: 17px;
+}
+#_scores_sidebar .scorecard.live .score_header{
+	display: block;
+	text-align: left;
+	margin-bottom: 10px;
+	padding-bottom: 11px;
+	box-shadow: 0 2px 2px -2px #000;
+}
+#_scores_sidebar .scorecard.live .score_header img{
+	width: 45px;
+	height: 45px;
+	padding: 10px;
+	margin-left: 10px;
+	float: left;
+}
+#_scores_sidebar .scorecard.live .score_header .sport{
+	text-transform: uppercase;
+	display: inline-block;
+	margin: 10px;
+	margin-bottom: 0px;
+	margin-top: 13px;
+	text-align: left;
+}
+#_scores_sidebar .scorecard.live .score_header .game_level{
+	display: inline-block;
+}
+#_scores_sidebar .scorecard.live .score_header .live_state{
+	display: inline-block;
+	margin-left: 10px;
+	color: rgb(29,204,29);
+}
+#_scores_sidebar .scorecard.live .score_header .live_state .live_icon{
+	width: 10px;
+	height: 10px;
+	background: rgb(29,204,29);
+	display: inline-block;
+	border-radius: 20px;
+}
+#_scores_sidebar .scorecard .score_body .score_teams{
+	text-align: center;
+	width: 100%;
+	display: block;
+	margin: 0px;
+}
+#_scores_sidebar .scorecard .score_body .score_teams .score_team{
+	font-size: 24px;
+}
+#_scores_sidebar .scorecard .score_body .score_teams .score_vs{
+	opacity: .3;
+}
+#_scores_sidebar .scorecard.live .score_body .score_display .score_team_logo{
+	width: 110px;
+	height: 110px;
+}
+#_scores_sidebar .scorecard .score_body .score_display{
+	font-size: 36px;
+	border-radius: 120px;
+	display: block;
+	margin: 10px 25px;
+	text-align: center;
+	border: solid thin rgba(255,255,255, 0.4);
+	padding: 10px;
+}
+#_scores_sidebar .scorecard .score_body .score_footer .timer{
+	display: inline-block;
+	margin-bottom: 0px;
+	margin-right: 5px;
+}
+#_scores_sidebar .scorecard .score_body .score_footer .score_timer{
+	display: inline-block;
+
+}
+#_scores_sidebar .scorecard .score_body .score_footer .score_location{
+	margin-top: 10px;
+	
+}
+#_scores_sidebar .scorecard.live .score_body .score_footer .location{
+	margin-top: 0px;
+	margin-left: 20px;
+	margin-bottom: 0px;
+	margin-right: 5px;
+}
+#_scores_sidebar .scorecard .score_body .score_footer .score_location{
+	margin-top: 10px;
+}
+#_scores_sidebar .scorecard{
+	background: rgba(6,7,8,0.8);
+	min-height: 100px;
+	border-bottom: rgb(6,7,8);
+	margin-bottom: 5px;
+}
+
+
+#_scores_sidebar .scorecard .score_header img{
+	width: 25px;
+	height: 25px;
+	padding: 10px;
+	margin-left: 10px;
+}
+#_scores_sidebar .scorecard .score_header .sport{
+	text-transform: uppercase;
+	display: inline-block;
+	margin: 10px;
+	margin-bottom: 0px;
+	margin-top: 13px;
+}
+#_scores_sidebar .scorecard .score_header .game_level{
+	display: inline-block;
+}
+
+#_scores_sidebar .scorecard .score_body .score_display .score_team_logo{
+	width: 86px;
+	height: 86px;
+}
+#_scores_sidebar .scorecard.live .score_body .score_footer{
+	padding-bottom: 20px;
+	margin-top: 30px;
+	text-align: center;
+	font-size: 15px;
+}	
+
+#_scores_sidebar .scorecard .score_body .score_footer{
+	padding-bottom: 10px;
+	margin-top: 30px;
+	text-align: left;
+	margin-left: 20px;
+	font-size: 10px;
+}	
+
+#_scores_sidebar .scorecard .score_body .score_footer .location{
+	margin-top: 0px;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	margin-right: 5px;
+}
+#_scores_sidebar .scorecard .score_body .score_footer .score_button{
+	text-decoration: none;
+	color: #fff;
+	margin-top: -10px;
+	border-radius: 30px;
+	border: solid thin #fff;
+	padding: 7px 14px;
+	float: right;
+	margin-right: 24px;
+	transition: background-color .2s;
+}
+#_scores_sidebar .scorecard .score_body .score_footer .score_button:hover{
+	background-color: rgba(255,255,255,0.1);
+}
+#_scores_sidebar .scorecard .score_body .score_footer .score_button img{
+	margin-right: 5px;
+	transition: all .1s;
+	transform: rotateZ(0deg);
+}
+#_scores_sidebar .scorecard .score_body .score_footer .score_button:hover img{
+	margin-right: 10px;
+	transform: rotateZ(-10deg);
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+	display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+	visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+h1, h2, h3{
+	font-weight: 300;
+	margin: 0;
+}
+@media only screen and (min-width: 35em) {
+	/* Style adjustments for viewports that meet the condition */
+
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+	/*
+		.88b  d88.  .d8b.  d888888b d8b   db d888888b d888888b d888888b db      d88888b
+		88'YbdP`88 d8' `8b   `88'   888o  88 `~~88~~'   `88'   `~~88~~' 88      88'
+		88  88  88 88ooo88    88    88V8o 88    88       88       88    88      88ooooo
+		88  88  88 88~~~88    88    88 V8o88    88       88       88    88      88~~~~~
+		88  88  88 88   88   .88.   88  V888    88      .88.      88    88booo. 88.
+		YP  YP  YP YP   YP Y888888P VP   V8P    YP    Y888888P    YP    Y88888P Y88888P
+		
+		
+	*/
+
+	#_mainTitle_wrapper{
+		width: 100%;
+		height: 100%;
+		/* margin: 0 auto; */
+		display: none;
+		-webkit-perspective: 700;
+		-khtml-perspective: 700;
+		-moz-perspective: 700;
+		-ms-perspective: 700;
+		perspective: 700;
+
+		position: fixed;
+		overflow: hidden;
+	}
+	#_mainTitle{
+		width: 400px;
+		position: relative;
+		display: block;
+		left: 0;
+		top: 0;
+		margin: 0 auto;
+		transform-style: preserve-3d;
+	}
+	#_mainTitle .title_bordered_art{
+		border: solid #fff 3px;
+		border-bottom: none;
+		padding: 10px;
+		display: relative;
+	}
+	#_mainTitle #title1{
+		display: block;
+		width: 250px;
+		text-align: center;
+		right: 0;
+		top: -41px;
+		position: absolute;
+		transform: translate3d(-16px, 0px, -11px) rotateX(20deg);
+	}
+	#_mainTitle #title1 #top_polyline{
+		position: absolute;
+		margin: 0;
+	}
+	#_mainTitle #title2{
+		font-size: 20px;
+		display: block;
+		line-height: 1.1;
+		text-align: center;
+		position: relative;
+	}
+	#_mainTitle #title2 h2{
+		font-size: 30px;
+	}
+	#_mainTitle #title2 h1{
+		font-size: 57px;
+		margin-top: -3px;
+	}
+	#_mainTitle #title2 .right_bottom_Callout{
+		color: #000;
+		padding: 4px 15px;
+		background: #fff;
+		font-size: 20px;
+		vertical-align: baseline;
+		margin-left: 15px;
+		margin-bottom: 0px;
+		position: relative;
+		display: inline-block;
+	}
+	#_mainTitle #title2 .right_bottom_Callout .top_polyline_cursor{
+		position: relative;
+		margin-left: -22px;
+		left: -10px;
+		bottom: -4px;
+	}
+	#_mainTitle #title3{
+		transform: translate3d(0px, -6px, -10px) rotateX(-60deg);
+		display: block;
+	}
+	#_mainTitle #title4_side_rankingTitle{
+		display: block;
+		position: absolute;
+		transform: rotateZ(-90deg) rotateX(20deg) translate3d(-70px, 10px, -20px);
+		transform-origin: 0% 0%;
+	}
+	#_mainTitle #title4{
+		display: block;
+		padding: 0px;
+		transform-style: preserve-3d;
+		transform: translate3d(0px, -11px, -20px);
+	}
+	#_mainTitle #title4 .ranking{
+		text-align: left;
+		padding: 10px;
+	}
+	#_mainTitle #title4 .ranking.more_button{
+		background: rgba(255,255,255,0.1);
+		padding: 14px;
+		border-bottom: solid 2px;
+		text-align: center;
+		cursor: pointer;
+		transition: background .2s;
+		
+	}
+	#_mainTitle #title4 .ranking.more_button:hover{
+		background: rgba(255,255,255,0.2);
+	}
+	#_mainTitle #title4 .placement{
+		transition: background .3s, transform .1s;
+		cursor: default;
+	}
+	#_mainTitle #title4 .placement:hover{
+		background: rgba(0,0,0,0.5);
+		transform: translateZ(20px);
+	}
+	#_mainTitle #title4 .placement .logo{
+		height: 40px;
+		width: 40px;
+		margin-left: 34px;
+	}
+	#_mainTitle #title4 .placement .name{
+		height: 40px;
+		width: 210px;
+		display: inline-block;
+		margin-bottom: -25px;
+		margin-left: 7px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	#_mainTitle #title4 .placement .points{
+		font-weight: 700;
+	}
+	#_mainTitle #title5{
+		display: block;
+		border-bottom: solid thick;
+		transform-style: preserve-3d;
+		transform: translate3d(0px, -19px, -30px) rotateX(-60deg);
+	}
+	#_mainTitle #title5 #bottom_polygon{
+		position: absolute;
+		top: 30px;
+		left: -3px;
+		transform: rotateX(31deg) translateZ(20px);
+	}
+
+	#_mainTitle_footer{
+		display: block;
+		position: fixed;
+		left: 10px;
+		bottom: 10px;
+		font-size: 12px;
+		font-weight: 300;
+	}
+	#_mainTitle_footer img{
+		vertical-align: middle;
+		display: inline-block;
+		margin-bottom: 2px;
+		margin-left: 3px;
+	}
+	#_mainTitle_footer a:link,
+	#_mainTitle_footer a:hover,
+	#_mainTitle_footer a:active,
+	#_mainTitle_footer a:visited{
+		text-decoration: none;
+		color: #fff;
+	}
+
+	.alinkwrapper a:link,
+	.alinkwrapper a:hover,
+	.alinkwrapper a:active,
+	.alinkwrapper a:visited{
+		text-decoration: none;
+		color: #fff;
+	}
+
+	/*
+		d888888b d888888b .88b  d88. d88888b db      d888888b d8b   db d88888b
+		`~~88~~'   `88'   88'YbdP`88 88'     88        `88'   888o  88 88'
+		   88       88    88  88  88 88ooooo 88         88    88V8o 88 88ooooo
+		   88       88    88  88  88 88~~~~~ 88         88    88 V8o88 88~~~~~
+		   88      .88.   88  88  88 88.     88booo.   .88.   88  V888 88.
+		   YP    Y888888P YP  YP  YP Y88888P Y88888P Y888888P VP   V8P Y88888P
+		
+		
+	*/
+
+	#_scores_timeline{
+		display: block;
+		position: fixed;
+		width: 120px;
+		top: 0;
+		min-height: 100%;
+		background: rgba(255,255,255,0.03);
+		right: 520px;
+		opacity: .6;
+		transition: opacity .3s;
+	}
+
+	#_scores_timeline:hover{
+		opacity: 1;
+
+	}
+
+	#_scores_timeline #timeline_length{
+		width: 2px;
+		height: 100%;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		background: rgba(255,255,255,1);
+		border-radius: 10px;
+		display: none;
+		transition: width .2s;
+	}
+	#_scores_timeline:hover #timeline_length{
+		width: 5px;
+	}
+
+	#_scores_timeline #timeline_labels{
+		height: 100%;
+		position: absolute;
+		display: none;
+		top: 40px;
+
+		right: 30px;
+	}
+	#_scores_timeline #timeline_labels .currentCursor{
+		position: relative;
+		padding: 5px 12px;
+		margin-bottom: 10px;
+		transition: background .3s ease .1s, color .1s ease .1s;
+		cursor: pointer;
+	}
+	#_scores_timeline #timeline_labels .currentCursor.active,
+	#_scores_timeline #timeline_labels .currentCursor:hover{
+		background: #fff;
+		color: #000;
+		transition: background .2s ease 0s, color .3s ease 0s;
+	}
+	
+
+	#_scores_timeline #timeline_labels .currentCursor:after{
+		content: url("../img/timeline_cursor.png");
+		right: 0px;
+		position: absolute;
+		top: 7px;
+		opacity: 0;
+		transition: right .3s ease 0s, opacity .2s ease 0s, background .2s ease 0s;
+	}
+
+	#_scores_timeline #timeline_labels .currentCursor:hover:after,
+	#_scores_timeline #timeline_labels .currentCursor.active:after{
+		right: -10px;
+		opacity: 1;
+		transition: right .1s ease 0s, opacity .1s ease 0s;
+	}
+	/*
+		.d8888.  .o88b.  .d88b.  d8888b. d88888b .d8888.
+		88'  YP d8P  Y8 .8P  Y8. 88  `8D 88'     88'  YP
+		`8bo.   8P      88    88 88oobY' 88ooooo `8bo.
+		  `Y8b. 8b      88    88 88`8b   88~~~~~   `Y8b.
+		db   8D Y8b  d8 `8b  d8' 88 `88. 88.     db   8D
+		`8888Y'  `Y88P'  `Y88P'  88   YD Y88888P `8888Y'
+		
+		
+	*/
+
+	#_scores_sidebar{
+		display: block;
+		max-width: 520px;
+	}
+	#_scores_sidebar .sideScores_title{
+		font-size: 24px;
+		padding: 20px;
+	}
+
+}
+
+
+@media print,
+	   (-webkit-min-device-pixel-ratio: 1.25),
+	   (min-resolution: 1.25dppx),
+	   (min-resolution: 120dpi) {
+	/* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+	*,
+	*:before,
+	*:after,
+	*:first-letter,
+	*:first-line {
+		background: transparent !important;
+		color: #000 !important; /* Black prints faster:
+								   http://www.sanbeiji.com/archives/953 */
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+
+	a[href]:after {
+		content: " (" attr(href) ")";
+	}
+
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+
+	/*
+	 * Don't show links that are fragment identifiers,
+	 * or use the `javascript:` pseudo protocol
+	 */
+
+	a[href^="#"]:after,
+	a[href^="javascript:"]:after {
+		content: "";
+	}
+
+	pre,
+	blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+
+	/*
+	 * Printing Tables:
+	 * http://css-discuss.incutio.com/wiki/Printing_Tables
+	 */
+
+	thead {
+		display: table-header-group;
+	}
+
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
+}

@@ -1,0 +1,211 @@
+
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">Live Match Stats</div>
+    <div class="right">
+      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+    </div>
+  </div>
+</div>
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="form" class="page">
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="content-block-title">New Match</div>
+      <div class="list-block">
+        <ul>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="material-icons">autorenew</i></div>
+              <div class="item-inner"> 
+                <div class="item-title label">Go Live</div>
+                <div class="item-input" id="go_live_button">
+                  <label class="label-switch">
+                    <input id="form_live" type="checkbox"/>
+                    <div class="checkbox"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="material-icons">add</i></div>
+              <div class="item-inner"> 
+                <div class="item-title label">Game</div>
+                <div class="item-input">
+                  <select id="form_game">
+                    <option>Badminton</option>
+                    <option>Baseball</option>
+                    <option>Basketball</option>
+                    <option>Carrom</option>
+                    <option>Chess</option>
+                    <option>Cricket</option>
+                    <option>Elle</option>
+                    <option>Football</option>
+                    <option>Hockey</option>
+                    <option>Karate</option>
+                    <option>Netball</option>
+                    <option>Rugby</option>
+                    <option>Swimming</option>
+                    <option>Table Tennis</option>
+                    <option>Taekwondo</option>
+                    <option>Tennis</option>
+                    <option>Track and Field</option>
+                    <option>Volleyball</option>
+                    <option>Wrestling</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="material-icons">line_weight</i></div>
+              <div class="item-inner"> 
+                <div class="item-title label">Description</div>
+                <div class="item-input">
+                  <input id="form_description" type="text" placeholder="Men's Group Matches"/>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="material-icons">location_on</i></div>
+              <div class="item-inner"> 
+                <div class="item-title label">Location</div>
+                <div class="item-input">
+                  <input id="form_location" type="text" placeholder="Location"/>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="material-icons">face</i></div>
+              <div class="item-inner"> 
+                <div class="item-title label">Team 1</div>
+                <div class="item-input">
+                  <select id="form_team1">
+                    <option>PER</option>
+                    <option>COL</option>
+                    <option>KEL</option>
+                    <option>SJP</option>
+                    <option>MOR</option>
+                    <option>RUH</option>
+                    <option>JAF</option>
+                    <option>EST</option>
+                    <option>RAJ</option>
+                    <option>SAB</option>
+                    <option>WAY</option>
+                    <option>SEA</option>
+                    <option>VPA</option>
+                    <option>UVA</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="material-icons">face</i></div>
+              <div class="item-inner"> 
+                <div class="item-title label">Team 2</div>
+                <div class="item-input">
+                  <select id="form_team2">
+                    <option>PER</option>
+                    <option>COL</option>
+                    <option>KEL</option>
+                    <option>SJP</option>
+                    <option>MOR</option>
+                    <option>RUH</option>
+                    <option>JAF</option>
+                    <option>EST</option>
+                    <option>RAJ</option>
+                    <option>SAB</option>
+                    <option>WAY</option>
+                    <option>SEA</option>
+                    <option>VPA</option>
+                    <option>UVA</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-100"><a href="#" class="confirm-update-stats button button-big button-fill color-green">Update Game Information</a></div>
+      </div>
+      <div class="content-block-title">Background Photo</div>
+      <div class="list-block">
+        <ul>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="material-icons">insert_photo</i></div>
+              <div class="item-inner"> 
+                <div class="item-title label">Photo</div>
+                <div class="item-input">
+                  <form id="image_uploadForm"
+                         enctype="multipart/form-data"
+                         action="/api/photo"
+                         method="post">
+                    <input id="form_photo" type="file" placeholder="Photo" name="userPhoto" required/>
+                    <input style="display: none;" type="submit" value="Upload Image" name="submit">
+                    <span id="status"></span>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <div class="row">
+          <div class="col-100"><a href="#" class="confirm-update-photo button button-big button-fill color-green">Update Background Photo</a></div>
+        </div>
+      </div>
+      <hr>
+      <div class="content-block">
+        <div class="row">
+          <div class="col-50 teamBlock">
+            <span class="teamName">Team 1</span>
+            <img src="img/uni_logo/PER.png" alt="">
+            <span class="teamScore" id="team_score_1">0</span>
+          </div>
+          <div class="col-50 teamBlock">
+            <span class="teamName">Team 1</span>
+            <img src="img/uni_logo/PER.png" alt="">
+            <span class="teamScore" id="team_score_2">0</span>
+          </div>
+          <div class="col-25"><a href="#" id="_team_1_inc" class="button button-big button-fill color-green"><i class="material-icons plus-minus">add</i></a></div>
+          <div class="col-25"><a href="#" id="_team_1_dec" class="button button-big button-fill color-red"><i class="material-icons plus-minus">remove</i></a></div>
+          <div class="col-25"><a href="#" id="_team_2_inc" class="button button-big button-fill color-green"><i class="material-icons plus-minus">add</i></a></div>
+          <div class="col-25"><a href="#" id="_team_2_dec" class="button button-big button-fill color-red"><i class="material-icons plus-minus">remove</i></a></div>
+        </div>
+      </div>
+      <hr>
+      <div class="content-block">
+        <div class="row">
+          <div class="col-100 timer">
+          <input id="timer_hours" type="number" max="59" min="00" step="1" value="00" onchange="if(parseInt(this.value,10)<10)this.value='0'+this.value;">:<input id="timer_minutes" type="number" max="59" min="00" step="1" value="00" onchange="if(parseInt(this.value,10)<10)this.value='0'+this.value;">:<input id="timer_seconds" type="number" max="59" min="00" step="1" value="00" onchange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"></div>
+          <br>
+          <div class="col-50"><a id="_start_timer" href="#" class="button button-big button-fill color-green">Start Timer</a></div>
+          <div class="col-50"><a id="_stop_timer" href="#" class="button button-big button-fill color-red">Stop Timer</a></div>
+        </div>
+      </div>
+      <hr>
+      <div class="content-block">
+        <div class="row">
+          <div class="col-30"><a href="#" class="confirm-reset button button-big button-fill color-red">Reset</a></div>
+          <div class="col-70"><a href="#" class="confirm-end-game button button-big button-fill color-green">End Game</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
