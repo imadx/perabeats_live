@@ -39,6 +39,8 @@ socket.on('init_list', function (data) {
 		newRecentScoresPanel.find(".score_footer .score_location").text(_card["location"]);
 		newRecentScoresPanel.find(".score_display .score_team1_score").text(_card["team1_score"]);
 		newRecentScoresPanel.find(".score_display .score_team2_score").text(_card["team2_score"]);
+		newRecentScoresPanel.find(".score_display .score_team1_logo ").attr("src", "img/uni_logo/" + _card["team1"] + ".png");
+		newRecentScoresPanel.find(".score_display .score_team2_logo ").attr("src", "img/uni_logo/" + _card["team2"] + ".png");
 
 		newRecentScoresPanel.find(".score_timer .t_hours").text(returnTwoDigits(_card["timer_hours"]));
 		newRecentScoresPanel.find(".score_timer .t_minutes").text(returnTwoDigits(_card["timer_minutes"]));
