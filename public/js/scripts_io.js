@@ -32,6 +32,7 @@ socket.on('init_list', function (data) {
 		// card display
 		newRecentScoresPanel.prop('id', 'timeline_link_recent_' + _card_id + "_a");
 		newRecentScoresPanel.find(".score_header .sport").text(_card["game"]);
+		newRecentScoresPanel.find(".score_header img").attr("src", "img/sports_logo/" + _card["game"] + ".png");
 		newRecentScoresPanel.find(".score_header .game_level").text(_card["description"]);
 		newRecentScoresPanel.find(".score_body .score_team1").text(_card["team1"]);
 		newRecentScoresPanel.find(".score_body .score_team2").text(_card["team2"]);
@@ -87,12 +88,15 @@ socket.on('live_update', function(data){
 
 		newLiveScoreBoard.prop('id', 'live_' + _card_id);
 		newLiveScoreBoard.find(".score_header .sport").text(_card["game"]);
+		newLiveScoreBoard.find(".score_header img").attr("src", "img/sports_logo/" + _card["game"] + ".png");
 		newLiveScoreBoard.find(".score_header .game_level").text(_card["description"]);
 		newLiveScoreBoard.find(".score_body .score_team1").text(_card["team1"]);
 		newLiveScoreBoard.find(".score_body .score_team2").text(_card["team2"]);
 		newLiveScoreBoard.find(".score_footer .score_location").text(_card["location"]);
 		newLiveScoreBoard.find(".score_display .score_team1_score").text(_card["score_team1"]);
 		newLiveScoreBoard.find(".score_display .score_team2_score").text(_card["score_team2"]);
+		newLiveScoreBoard.find(".score_display .score_team1_logo ").attr("src", "img/uni_logo/" + _card["team1"] + ".png");
+		newLiveScoreBoard.find(".score_display .score_team2_logo ").attr("src", "img/uni_logo/" + _card["team2"] + ".png");
 
 		newLiveScoreBoard.find(".score_timer .t_hours").text(returnTwoDigits(_card["timer_hours"]));
 		newLiveScoreBoard.find(".score_timer .t_minutes").text(returnTwoDigits(_card["timer_minutes"]));
