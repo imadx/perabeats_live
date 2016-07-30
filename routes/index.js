@@ -79,6 +79,17 @@ router.post('/formData', function(req, res, next) {
 			console.log('Game saved successfully!');
 			res.send({'status':'success'});
 		});
+
+		io.emit('live_update', control_clients.getAllLiveClients());
+
+		var obj = JSON.parse(fs.readFileSync('model/highScores.js', 'utf8'));
+		io.emit('score_list', obj);
+		
+		// sendList
+		Game.find({}).sort({date: -1}).exec(function(err, games) {
+			if (err) throw err;
+			io.emit('init_list', games);
+		});
 	}
 	else
 		res.send({'status':'failure'});
